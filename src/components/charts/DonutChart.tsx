@@ -56,7 +56,7 @@ class DonutChart extends Component<Props, DonutChartState> {
     render() {
         return (
             <div className="donut-chart">
-                <Chart options={this.state.options} series={this.state.series} type="donut" height={330} />
+                <Chart options={this.state.options} series={this.state.series} type="donut" height={330} width={500} />
             </div>
         );
     }

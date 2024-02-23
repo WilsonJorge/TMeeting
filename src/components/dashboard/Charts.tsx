@@ -36,7 +36,7 @@ const Charts: React.FC<ChartProps> = (props: ChartProps) => {
                             Gráfico de Linhas
                         </h2>
                         <div>
-                            <LineChart color={props.textColor} />
+                            <LineChart color="#4c4c4c"/>
                         </div>
                     </Card>
                 </Col>
@@ -51,7 +51,7 @@ const Charts: React.FC<ChartProps> = (props: ChartProps) => {
                         >
                             Gráfico de Pizza
                         </h2>
-                        <PieChart color={props.textColor} />
+                        <PieChart color="#4c4c4c"/>
                     </Card>
                 </Col>
                 <Col xs={24} sm={24} md={12}>
@@ -65,7 +65,7 @@ const Charts: React.FC<ChartProps> = (props: ChartProps) => {
                         >
                             Gráfico de Barras
                         </h2>
-                        <BarChart color={props.textColor} />
+                        <BarChart color="#4c4c4c" />
                     </Card>
                 </Col>
                 <Col xs={24} sm={24} md={12}>
@@ -79,7 +79,7 @@ const Charts: React.FC<ChartProps> = (props: ChartProps) => {
                         >
                             Gráfico Donut
                         </h2>
-                        <DonutChart color={props.textColor} />
+                        <DonutChart color="#4c4c4c" />
                     </Card>
                 </Col>
             </Row>

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { DollarCircleOutlined, DollarOutlined, ShoppingCartOutlined, ShoppingOutlined} from "@ant-design/icons";
 import { DashboardOutlined, ScheduleOutlined, LaptopOutlined, FileTextOutlined, SettingOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import {Card, Space, Statistic, Typography } from "antd";
+import {Card, Space, Statistic, Typography, Col } from "antd";
 import {
   DesktopOutlined,
   FileOutlined,
@@ -12,36 +12,13 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import Charts from '@/components/dashboard/Charts';
+import Cards from '@/components/dashboard/Cards';
+import MyTable from '@/components/dashboard/MyTable';
+import Link from 'next/link';
+import MenuContent from '@/components/dashboard/MenuContent';
 
 const { Header, Content, Footer, Sider } = Layout;
-
-type MenuItem = Required<MenuProps>['items'][number];
-
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } as MenuItem;
-}
-
-const items: MenuItem[] = [
-  getItem('Dashboard', '1', <DashboardOutlined />),
-  getItem('Usuários', '2', <UserOutlined />),
-  getItem('Reservas', 'sub1', <ScheduleOutlined />, [
-    getItem('Criar', '3'),
-    getItem('Listar', '4'),
-  ]),
-  getItem('  Salas', 'sub2', <LaptopOutlined />, [getItem('Criar', '6'), getItem('Listar', '8')]),
-  getItem('Relatórios', '9', <FileTextOutlined />),
-  getItem('Configurações', '10', <SettingOutlined />),
-];
 
 const Admin: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -50,14 +27,14 @@ const Admin: React.FC = () => {
   } = theme.useToken();
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: '100vh' }} >
       <Sider collapsible collapsed={collapsed} onCollapse={(value: boolean) => setCollapsed(value)}>
         <div className="demo-logo-vertical" />
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+        <MenuContent />
       </Sider>
       <Layout>
         <Header style={{ padding: 0, background: colorBgContainer }} />
-        <Content style={{ margin: '0 16px' }}>
+        <Content style={{ margin: '0 16px'}}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
@@ -122,27 +99,43 @@ const Admin: React.FC = () => {
                     valeu={20000}/>
                 </Space>
                 
-        </Space>  
+                
+        </Space> 
+
+        <Space>
+           <Charts/>
+        </Space> 
+{/* 
+        <Space>
+           <MyTable/>
+        </Space>  */}
+        <MyTable/>
 
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          tMeeting ©{new Date().getFullYear()} Created by Wilson Macuacua
         </Footer>
       </Layout>
+      
     </Layout>
   );
 };
 
 function DashboardCard({title,valeu,icon}){
     return(
-        <Card>
-           <Space direction="horizontal">
-             {icon}
-             <Statistic title ={title} value={valeu}/>
-           </Space>
-       </Card>
-    )
+      <>
+          <Card style={{ width: 250 }}>
+              <Space direction="horizontal">
+                {icon}
+                <Statistic title ={title} value={valeu}/>
+              </Space>
+          </Card>
+       
+        
+      </>
+          )
 }
 
 export default Admin;
+

@@ -74,7 +74,7 @@ class LineChart extends Component<Props, LineChartState> {
     render() {
         return (
             <div className="line-chart">
-                <Chart options={this.state.options} series={this.state.series} type="line" height={320} />
+                <Chart options={this.state.options} series={this.state.series} type="line" height={320} width={500} />
             </div>
         );
     }

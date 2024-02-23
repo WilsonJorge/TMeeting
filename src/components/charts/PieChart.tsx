@@ -56,7 +56,7 @@ class PieChart extends Component<Props, PieChartState> {
     render() {
         return (
             <div className="pie-chart">
-                <Chart options={this.state.options} series={this.state.series} type="pie" height={330} />
+                <Chart options={this.state.options} series={this.state.series} type="pie" height={330} width={450} />
             </div>
         );
     }
