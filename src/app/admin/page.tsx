@@ -17,6 +17,7 @@ import Cards from '@/components/dashboard/Cards';
 import MyTable from '@/components/dashboard/MyTable';
 import Link from 'next/link';
 import MenuContent from '@/components/dashboard/MenuContent';
+import BookForm from '@/components/Book/BookForm'
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -105,11 +106,10 @@ const Admin: React.FC = () => {
         <Space>
            <Charts/>
         </Space> 
-{/* 
-        <Space>
-           <MyTable/>
-        </Space>  */}
+
         <MyTable/>
+
+        <BookForm/>
 
           </div>
         </Content>

@@ -10,7 +10,7 @@ const MenuContent = () => {
             <Menu.Item key="1" icon={<DashboardOutlined />}>Dashboard</Menu.Item>
             <Menu.Item key="2" icon={<UserOutlined />}>Usuários</Menu.Item>
             <SubMenu key="sub1" icon={<ScheduleOutlined />} title="Reservas">
-                <Menu.Item key="3">Criar</Menu.Item>
+                <Menu.Item key="3">Criar</Menu.Item>    
                 <Menu.Item key="4">Listar</Menu.Item>
             </SubMenu>
             <SubMenu key="sub2" icon={<LaptopOutlined />} title="Salas">
