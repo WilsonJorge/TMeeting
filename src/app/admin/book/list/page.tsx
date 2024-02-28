@@ -1,18 +1,10 @@
 "use client"
 import React, { useState } from 'react';
-import { DollarCircleOutlined, DollarOutlined, ShoppingCartOutlined, ShoppingOutlined} from "@ant-design/icons";
-import { DashboardOutlined, ScheduleOutlined, LaptopOutlined, FileTextOutlined, SettingOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import {Card, Space, Statistic, Typography, Col } from "antd";
-import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import {Space,Typography, Col } from "antd";
 import {Layout,theme } from 'antd';
 import MenuContent from '@/components/dashboard/MenuContent';
 import BookList from '@/components/Book/BookList'
+import HeaderMain from '@/components/Header/Header';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -29,7 +21,7 @@ const Admin: React.FC = () => {
         <MenuContent />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer , marginBottom: 20}} />
+        <HeaderMain/>
         <Space>
 
         </Space>

@@ -52,7 +52,7 @@ const Admin: React.FC = () => {
            <Typography.Title level={4}>Dashboard</Typography.Title>
 
                 <Space direction="horizontal">
-                    <DashboardCard  
+                    <Card  
                         icon={<ShoppingCartOutlined
                             style={{
                                     color:"green",
@@ -61,9 +61,9 @@ const Admin: React.FC = () => {
                                     fontSize:24,
                                     padding:8, }}  
                             />} 
-                            title={"Orders"} 
-                            valeu={2000}/>
-                    <DashboardCard 
+                            title="Orders"
+                            value={2000}/>
+                    <Card 
                     icon={<ShoppingOutlined
                         style={{
                                 color:"blue",
@@ -72,10 +72,11 @@ const Admin: React.FC = () => {
                                 fontSize:24,
                                 padding:8, }}  
                         />} 
-                    title={"Inventory"} 
-                    valeu={2000}/>
+                    title="Inventory"
+                    value={2000}/>
+                    
 
-                    <DashboardCard 
+                    <Card 
                     icon={<UserOutlined
                         style={{
                                 color:"purple",
@@ -84,10 +85,10 @@ const Admin: React.FC = () => {
                                 fontSize:24,
                                 padding:8, }}  
                         />} 
-                    title={"Customer"} 
-                    valeu={2000}/>
+                    title="Customer" 
+                    value={2000}/>
 
-                    <DashboardCard 
+                    <Card 
                     icon={<DollarCircleOutlined
                         style={{
                                 color:"red",
@@ -96,8 +97,8 @@ const Admin: React.FC = () => {
                                 fontSize:24,
                                 padding:8, }}  
                         />} 
-                    title={"Revenue"} 
-                    valeu={20000}/>
+                    title="Revenue" 
+                    value={20000}/>
                 </Space>
                 
                 
@@ -121,21 +122,6 @@ const Admin: React.FC = () => {
     </Layout>
   );
 };
-
-function DashboardCard({title,valeu,icon}){
-    return(
-      <>
-          <Card style={{ width: 250 }}>
-              <Space direction="horizontal">
-                {icon}
-                <Statistic title ={title} value={valeu}/>
-              </Space>
-          </Card>
-       
-        
-      </>
-          )
-}
 
 export default Admin;
 

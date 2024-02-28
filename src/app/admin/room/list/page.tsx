@@ -1,12 +1,12 @@
 "use client"
 import React, { useState } from 'react';
-import {Space, Typography} from "antd";
-import { Layout, theme } from 'antd';
+import {Space,Typography, Col } from "antd";
+import {Layout,theme } from 'antd';
 import MenuContent from '@/components/dashboard/MenuContent';
-import BookForm from '@/components/Book/BookForm'
+import RoomList from '@/components/Room/RoomList'
 import HeaderMain from '@/components/Header/Header';
 
-const {Content, Footer, Sider } = Layout;
+const { Header, Content, Footer, Sider } = Layout;
 
 const Admin: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -36,11 +36,10 @@ const Admin: React.FC = () => {
             }}
           >
                 <Space size={20} direction="vertical">
-           <Typography.Title level={4}>Reserva</Typography.Title>
+           <Typography.Title level={4}>Listas de Salas de Reuniao</Typography.Title>
 
         </Space>  
-
-        <BookForm/>
+                <RoomList/>
 
           </div>
         </Content>
@@ -54,4 +53,3 @@ const Admin: React.FC = () => {
 };
 
 export default Admin;
-

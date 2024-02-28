@@ -1,35 +1,30 @@
 import React from 'react';
-import { Button, Form, Input, InputNumber } from 'antd';
+import { Space, Form,Row, Col} from 'antd';
+import InputComponent from '@/components/input/InputComponent'
 
-const onChange = (value: number) => {
-    console.log('changed', value);
-  };
+
 
 const App: React.FC = () => (
-  <Form
-    name="wrap"
-    labelCol={{ flex: '110px' }}
-    labelAlign="left"
-    labelWrap
-    wrapperCol={{ flex: 1 }}
-    colon={false}
-    style={{ maxWidth: 600 }}
-  >
-    <Form.Item label="Nome da sala" name="name" rules={[{ required: true }]}>
-      <Input />
-    </Form.Item>
+  <Space direction="vertical" style={{ width: '100%' }}>
 
-    <Form.Item label="Capacidade da Sala" name="capacity" rules={[{ required: true }]}>
-        <InputNumber min={1} max={10} defaultValue={3} onChange={onchange} style={{ width: '100%' }} />
-    </Form.Item>
+<div className='formulario'>
+  <Row gutter={16}>
+    <Col span={12}>
+      <Form.Item label="Nome da sala" name="name" rules={[{ required: true }]}>
+        <InputComponent/>
+      </Form.Item>
+    </Col>
 
-
-    <Form.Item label=" ">
-      <Button type="primary" htmlType="submit">
-        Submit
-      </Button>
-    </Form.Item>
-  </Form>
+    <Col span={12}>
+      <Form.Item label="Capacidade" name="capacity" rules={[{ required: true }]}>
+        <InputComponent/>
+      </Form.Item>
+    </Col>
+  </Row>
+</div>
+    
+    
+  </Space>
 );
 
 export default App;

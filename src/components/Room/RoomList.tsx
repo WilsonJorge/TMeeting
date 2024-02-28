@@ -10,40 +10,35 @@ type InputRef = GetRef<typeof Input>;
 
 interface DataType {
     key: string;
-    reservante: string;
-    sala: string;
-    datah: string
-    hora: string;
+    name: string;
+    capacity: number;
+    status: string
 }
 type DataIndex = keyof DataType;
 const data: DataType[] = [
   {
     key: '1',
-    reservante: 'John Brown',
-    sala: 'Sala-A-001',
-    datah:  '2024-02-12',
-    hora : '04:00:00',
+    name: 'Sala de Reuniao A',
+    capacity: 30,
+    status:  'INDISPONIVEL',
   },
   {
     key: '2',
-    reservante: 'John Brown',
-    sala: 'Sala-A-001',
-    datah:  '2024-02-12',
-    hora : '04:00:00',
+    name: 'Sala de Reuniao B',
+    capacity: 50,
+    status:  'DISPONIVEL',
   },
   {
     key: '3',
-    reservante: 'John Brown',
-    sala: 'Sala-A-001',
-    datah:  '2024-02-12',
-    hora : '04:00:00',
+    name: 'Sala de Reuniao C',
+    capacity: 40,
+    status:  'DISPONIVEL',
   },
   {
     key: '4',
-    reservante: 'John Brown',
-    sala: 'Sala-A-001',
-    datah:  '2024-02-12',
-    hora : '04:00:00',
+    name: 'Sala de Reuniao D',
+    capacity: 30,
+    status:  'INDISPONIVEL',
   },
 ];
 
@@ -154,37 +149,29 @@ const MyTable: React.FC = () => {
 
   const columns: TableColumnsType<DataType> = [
     {
-      title: 'Reservante',
-      dataIndex: 'reservante',
-      key: 'reservante',
+      title: 'Sala',
+      dataIndex: 'name',
+      key: 'name',
       width: '30%',
-      ...getColumnSearchProps('reservante'),
+      ...getColumnSearchProps('name'),
     },
     {
-      title: 'Sala',
-      dataIndex: 'sala',
-      key: 'sala',
+      title: 'Capacidade',
+      dataIndex: 'capacity',
+      key: 'capacity',
       width: '20%',
-      ...getColumnSearchProps('sala'),
+      ...getColumnSearchProps('capacity'),
     },
     
     {
-        title: 'Data',
-        dataIndex: 'datah',
-        key: 'datah',
-        ...getColumnSearchProps('datah'),
+        title: 'Status',
+        dataIndex: 'status',
+        key: 'status',
+        ...getColumnSearchProps('status'),
         sorter: (a, b) => a.address.length - b.address.length,
         sortDirections: ['descend', 'ascend'],
       },
 
-      {
-        title: 'hora',
-        dataIndex: 'hora',
-        key: 'hora',
-        ...getColumnSearchProps('hora'),
-        sorter: (a, b) => a.address.length - b.address.length,
-        sortDirections: ['descend', 'ascend'],
-      },
   ];
 
   return <Table columns={columns} dataSource={data}

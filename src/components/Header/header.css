@@ -1,10 +1,9 @@
-.user-info {
-    display: flex; 
+.avatar {
     justify-content: space-between; 
-    align-items: center;
+
   }
   
-  .user-info .email {
+  .user{
     font-size: larger; 
     text-align: right; 
   }

@@ -1,25 +1,23 @@
 "use client"
 import React, { useState } from 'react';
-import { DollarCircleOutlined, DollarOutlined, ShoppingCartOutlined, ShoppingOutlined, LogoutOutlined} from "@ant-design/icons";
-import { DashboardOutlined, ScheduleOutlined, LaptopOutlined, FileTextOutlined, SettingOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import {Card, Space, Statistic, Typography, Col, Dropdown,Avatar } from "antd";
+import { DollarCircleOutlined,ShoppingCartOutlined, ShoppingOutlined} from "@ant-design/icons";
+import {Card, Space, Statistic, Typography} from "antd";
 import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import Charts from '@/components/dashboard/Charts';
-import Cards from '@/components/dashboard/Cards';
-import MyTable from '@/components/dashboard/MyTable';
-import Link from 'next/link';
 import MenuContent from '@/components/dashboard/MenuContent';
-import BookForm from '@/components/Book/BookForm'
-import { right } from '@popperjs/core';
-import './header.css'
+import HeaderMain from '@/components/Header/Header';
+
+import { ReactNode } from 'react';
+
+interface DashboardCardProps {
+  title: ReactNode;
+  value: number;
+  icon: ReactNode;
+}
 
 const { Header, Content, Footer, Sider } = Layout;
 // Função de logout
@@ -27,19 +25,6 @@ const handleLogout = () => {
   // Implemente a lógica de logout aqui
   console.log('Logout');
 };
-
-// Menu suspenso para o avatar do usuário
-const userMenu = (
-  <Menu>
-    <Menu.Item key="settings" icon={<SettingOutlined />}>
-      Configurações
-    </Menu.Item>
-    <Menu.Item key="logout" icon={<LogoutOutlined />} onClick={handleLogout}>
-      Sair
-    </Menu.Item>
-  </Menu>
-);
-
 const Admin: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -53,15 +38,7 @@ const Admin: React.FC = () => {
         <MenuContent />
       </Sider>
       <Layout>
-        {/* <Header style={{ padding: 0, background: colorBgContainer }} /> */}
-        <Header  style={{padding:0, background :colorBgContainer}}>
-            <div className="user-info">
-                <Dropdown overlay={userMenu} placement="bottomRight">
-                  <Avatar size="small" icon={<UserOutlined />} />
-                </Dropdown>
-                <span className="email">macuacuaw330@gmail.com</span>
-            </div>
-        </Header>
+      <HeaderMain/>
         <Content style={{ margin: '0 16px'}}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>
@@ -89,7 +66,7 @@ const Admin: React.FC = () => {
                                     padding:8, }}  
                             />} 
                             title={"Orders"} 
-                            valeu={2000}/>
+                            value={2000}/>
                     <DashboardCard 
                     icon={<ShoppingOutlined
                         style={{
@@ -100,7 +77,7 @@ const Admin: React.FC = () => {
                                 padding:8, }}  
                         />} 
                     title={"Inventory"} 
-                    valeu={2000}/>
+                    value={2000}/>
 
                     <DashboardCard 
                     icon={<UserOutlined
@@ -112,7 +89,7 @@ const Admin: React.FC = () => {
                                 padding:8, }}  
                         />} 
                     title={"Customer"} 
-                    valeu={2000}/>
+                    value={2000}/>
 
                     <DashboardCard 
                     icon={<DollarCircleOutlined
@@ -124,7 +101,7 @@ const Admin: React.FC = () => {
                                 padding:8, }}  
                         />} 
                     title={"Revenue"} 
-                    valeu={20000}/>
+                    value={20000}/>
                 </Space>
                 
                 
@@ -145,13 +122,13 @@ const Admin: React.FC = () => {
   );
 };
 
-function DashboardCard({title,valeu,icon}){
+function DashboardCard({title,value,icon}:DashboardCardProps){
     return(
       <>
           <Card style={{ width: 250 }}>
               <Space direction="horizontal">
                 {icon}
-                <Statistic title ={title} value={valeu}/>
+                <Statistic title ={title} value={value}/>
               </Space>
           </Card>
        
