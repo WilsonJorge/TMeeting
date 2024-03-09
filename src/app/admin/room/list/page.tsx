@@ -1,14 +1,33 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Space,Typography, Col } from "antd";
 import {Layout,theme } from 'antd';
 import MenuContent from '@/components/dashboard/MenuContent';
 import RoomList from '@/components/Room/RoomList'
 import HeaderMain from '@/components/Header/Header';
+import { RoomService } from '@/services/RoomService';
+import { error } from 'console';
+
+const roomService = new RoomService();
+
+
+
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const Admin: React.FC = () => {
+
+  useEffect(()=>{
+
+    roomService.listarTodos().then((response)=>{
+      console.log(response.data);
+    }).catch((error)=>{
+      console.log(error);
+    })
+    
+  },[])
+
+
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
