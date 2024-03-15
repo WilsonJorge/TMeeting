@@ -12,7 +12,9 @@
     "@ant-design/nextjs-registry": "^1.0.0",
     "@popperjs/core": "^2.11.8",
     "apexcharts": "^3.46.0",
+    "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
     "datatables.net": "^2.0.0",
     "jquery": "^3.7.1",
     "next": "14.1.0",
@@ -33,5 +35,6 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "typescript": "^5"
-  }
+  },
+  "proxy": "http://localhost:9092"
 }
